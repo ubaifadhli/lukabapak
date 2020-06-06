@@ -16,6 +16,13 @@ class m200605_044200_create_movie_schedule_seat extends Migration
           'movie_schedule_id' => $this->integer(11),
           'seat_id' => $this->integer(11),
         ]);
+
+        for($i = 1; $i <= 10; $i++) {
+          $this->insert('{{%movie_schedule}}', [
+            'movie_id' => $i,
+            'theater_id' => ($i < 6) ? 1 : 2,
+          ]);
+        }
     }
 
     /**
