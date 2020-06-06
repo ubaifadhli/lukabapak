@@ -16,6 +16,14 @@ class m200605_041900_create_movie_status_table extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string(64),
         ]);
+
+        $this->insert('{{%movie_status}}', [
+          'name' => 'Now Playing',
+        ]);
+
+        $this->insert('{{%movie_status}}', [
+          'name' => 'Upcoming',
+        ]);
     }
 
     /**

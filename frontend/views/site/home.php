@@ -23,7 +23,7 @@
   	 <div class="navbar-nav">
       <a class="nav-item nav-link active" href="#now_playing">Now Playing <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link active" href="#upcoming">Upcoming <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link active" href="#">Theaters <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="<?php echo yii\helpers\Url::base()?>/site/theater">Theaters <span class="sr-only">(current)</span></a>
     </div>
 
     <ul class="navbar-nav ml-auto">

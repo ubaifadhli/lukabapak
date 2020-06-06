@@ -14,6 +14,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\City;
 
 /**
  * Site controller
@@ -76,6 +77,13 @@ class SiteController extends Controller
     {
         // return $this->render('index');
         return $this->render('home');
+    }
+
+    public function actionTheater()
+    {
+      $city = City::find()->asArray()->all();
+
+      return $this->render('theater', array('city' => $city));
     }
 
     /**
