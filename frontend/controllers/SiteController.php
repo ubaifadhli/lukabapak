@@ -15,6 +15,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\City;
+use frontend\models\Movie;
 
 /**
  * Site controller
@@ -75,15 +76,35 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        // return $this->render('index');
-        return $this->render('home');
+        $movie_nowplaying = (new \yii\db\Query())
+                ->from('movie')
+                ->where(['status_id' => 1])
+                ->limit(3)
+                ->orderBy('id DESC')
+                ->all();
+
+        $movie_upcoming = (new \yii\db\Query())
+                ->from('movie')
+                ->where(['status_id' => 0])
+                ->limit(3)
+                ->orderBy('id DESC')
+                ->all();
+
+        return $this->render('home', array( 'movie_nowplaying' => $movie_nowplaying,
+                                            'movie_upcoming' => $movie_upcoming));
     }
 
     public function actionTheater()
     {
-      $city = City::find()->asArray()->all();
+        $city = City::find()->asArray()->all();
 
-      return $this->render('theater', array('city' => $city));
+        $theater = (new \yii\db\Query())
+                ->select(['name', 'city_id'])
+                ->from('theater')
+                ->all();
+
+        return $this->render('theater', array('city' => $city,
+                                              'theater' => $theater));
     }
 
     /**
