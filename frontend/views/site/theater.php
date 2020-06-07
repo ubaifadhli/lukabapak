@@ -37,7 +37,7 @@
       <i class="material-icons">account_circle</i>
      </div>
      <li class="nav-item active">
-        <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo yii\helpers\Url::base()?>/site/login">Login <span class="sr-only">(current)</span></a>
       </li>
 
     </ul>

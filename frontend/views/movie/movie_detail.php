@@ -36,7 +36,7 @@
       <i class="material-icons">account_circle</i>
      </div>
      <li class="nav-item active">
-        <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo yii\helpers\Url::base()?>/site/login">Login <span class="sr-only">(current)</span></a>
       </li>
 
     </ul>
@@ -67,8 +67,8 @@
 				<td><p>Pesan Tiket : </p></td>
 				<td><button>12.15</button></td>
 				<td><button>12.45</button></td>
-			</tr>	
-		</table>	
+			</tr>
+		</table>
 	</div>
 	</div>
 </div>

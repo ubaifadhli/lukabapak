@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand mb-0 h1" href="#">Lukabapak</a>
+  <a class="navbar-brand mb-0 h1" href="<?php echo yii\helpers\Url::home()?>">Lukabapak</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <form class="form-inline my-2 my-lg-0">
@@ -31,37 +31,44 @@ use yii\widgets\ActiveForm;
     <ul class="navbar-nav ml-auto">
     <div class="icon">
       <i class="material-icons">account_circle</i>
-     </div> 
+     </div>
      <li class="nav-item active">
-        <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo yii\helpers\Url::base()?>">Login <span class="sr-only">(current)</span></a>
       </li>
-     
+
     </ul>
   </div>
 </nav>
 <!-- navbar -->
 
 	<div class="container">
-		
+
 	</div>
 
 <div class="container">
-	<div class="left"></div>
+	<div class="left">
+	</div>
 	<div class="right">
-		<div class="formBox">	
+		<div class="formBox">
 			<h1 class="title1">Welcome back!</h1>
 			<h5 class="title2">Log in to get latest movie in your area.</h5>
-			
-			<?php $form = ActiveForm::begin(); ?>
-				<?= $form->field($model, 'email') ?>
 
-				<?= $form->field($model, 'password') ?>
+			<div class="right">
+				<br>
+			<?php $form = ActiveForm::begin(); ?>
+				<?= $form->field($model, 'email')->textInput(['class' => 'email', 'placeholder' => 'Email'])->label(false) ?>
+
+				<?= $form->field($model, 'password')->passwordInput(['class' => 'password', 'placeholder' => 'Password'])->label(false) ?>
+
+				<a href="<?php echo yii\helpers\Url::base()?>/site/register">Don't have an account yet? create a new one!</a>
+
+				<br>
 
 				<div class="form-group">
 				<?= Html::submitButton('Login', ['class' => 'btn btn-primary']) ?>
 			</div>
 			<?php ActiveForm::end(); ?>
-			
+		</div>
 			<!-- <form action="" method="POST">
 				<div class="email">
 					<input type="email" name="email" placeholder="Email"><br>

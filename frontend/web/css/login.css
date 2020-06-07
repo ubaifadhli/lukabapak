@@ -22,7 +22,7 @@
 }
 
 .container {
-	
+
 	margin:  0 auto;
 	margin-top: 100px;
 
@@ -48,7 +48,7 @@
 	float:  left;
 	width: 50%;
 	height: 400px;
-	background: url(./images/login-cinema.png);
+	background: url(/assets/images/login_poster.png);
 	background-size: 500px 400px;
 	background-repeat: no-repeat;
 	box-sizing: border-box;

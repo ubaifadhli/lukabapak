@@ -81,8 +81,6 @@
 </div>
 <!-- carousel -->
 
-
-
 <div class="wrapper" id="now_playing">
 	<h1>Now Playing</h1>
   <div class="container">

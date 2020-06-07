@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand mb-0 h1" href="#">Lukabapak</a>
+  <a class="navbar-brand mb-0 h1" href="<?php echo yii\helpers\Url::home()?>">Lukabapak</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <form class="form-inline my-2 my-lg-0">
@@ -31,18 +31,18 @@ use yii\widgets\ActiveForm;
     <ul class="navbar-nav ml-auto">
     <div class="icon">
       <i class="material-icons">account_circle</i>
-     </div> 
+     </div>
      <li class="nav-item active">
-        <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo yii\helpers\Url::base() . '/site/login' ?>">Login <span class="sr-only">(current)</span></a>
       </li>
-     
+
     </ul>
   </div>
 </nav>
 <!-- navbar -->
 
 	<div class="container">
-		
+
 	</div>
 
 
@@ -50,16 +50,20 @@ use yii\widgets\ActiveForm;
 <div class="container">
 	<div class="left"></div>
 	<div class="right">
-		<div class="formBox">	
+		<div class="formBox">
 			<h1 class="title1">Create your account!</h1>
             <h5 class="title2">Sign up to get latest movie in your area.</h5>
-            
+
+						<br>
+
             <?php $form = ActiveForm::begin(); ?>
-                <?= $form->field($model, 'name') ?>
+                <?= $form->field($model, 'name')->textInput(['class' => 'name', 'placeholder' => 'Name'])->label(false) ?>
 
-				<?= $form->field($model, 'email') ?>
+				<?= $form->field($model, 'email')->textInput(['class' => 'email', 'placeholder' => 'Email'])->label(false) ?>
 
-				<?= $form->field($model, 'password') ?>
+				<?= $form->field($model, 'password')->passwordInput(['class' => 'password', 'placeholder' => 'Password'])->label(false) ?>
+
+				<a href="<?php echo yii\helpers\Url::base()?>/site/login">Already have an account? log in now!</a>
 
 				<div class="form-group">
 				<?= Html::submitButton('Register', ['class' => 'btn btn-primary']) ?>
