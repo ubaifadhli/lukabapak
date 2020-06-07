@@ -49,21 +49,21 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?php echo yii\helpers\Url::base()?>/assets/images/car3.jpg" class="d-block w-100" alt="...">
+      <img src="<?php echo yii\helpers\Url::base()?>/assets/images/oblivion_carousel.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>OBLIVION</h5>
         <p>Oblivion takes place in 2077, on an Earth devastated by war with extraterrestrials that has caused humanity to relocate itself to Titan. </p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="<?php echo yii\helpers\Url::base()?>/assets/images/car2.jpg" class="d-block w-100" alt="...">
+      <img src="<?php echo yii\helpers\Url::base()?>/assets/images/avatar_carousel.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="<?php echo yii\helpers\Url::base()?>/assets/images/car1.jpg" class="d-block w-100" alt="...">
+      <img src="<?php echo yii\helpers\Url::base()?>/assets/images/looper_carousel.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -88,17 +88,24 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <img src="<?php echo yii\helpers\Url::base()?>/assets/images/np1.jpg" class="img-responsive image-resize">
-        <a href="" class="movie-title">EXTRACTION</a>
+				<a href="<?php echo yii\helpers\Url::base() . '/movie/view?id=' . $movie_nowplaying[0]['id'] ?>" class="movie-title">
+        <img src="<?php echo yii\helpers\Url::base() . '/assets/images/' . $movie_nowplaying[0]['image_path']?>" class="img-responsive image-resize">
+				<?php echo $movie_nowplaying[0]['title'] ?>
+				</a>
+				<!-- <a href="<?php //echo yii\helpers\Url::base() . '/movie/view?id=' . $movie_nowplaying[0]['id'] ?>" class="movie-title"><?php echo $movie_nowplaying[0]['title'] ?></a> -->
       </div>
       <div class="col-md-4">
-        <img src="<?php echo yii\helpers\Url::base()?>/assets/images/np2.jpg" class="img-responsive image-resize">
-        <a href="" class="movie-title">AVENGERS ENDGAME</a>
-      </div>
+				<a href="<?php echo yii\helpers\Url::base() . '/movie/view?id=' . $movie_nowplaying[1]['id'] ?>" class="movie-title">
+        <img src="<?php echo yii\helpers\Url::base() . '/assets/images/'  . $movie_nowplaying[1]['image_path']?>" class="img-responsive image-resize">
+        <?php echo $movie_nowplaying[1]['title'] ?>
+				</a>
+			</div>
       <div class="col-md-4">
-        <img src="<?php echo yii\helpers\Url::base()?>/assets/images/np3.jpg" class="img-responsive image-resize">
-        <a href="" class="movie-title">INCEPTION</a>
-      </div>
+				<a href="<?php echo yii\helpers\Url::base() . '/movie/view?id=' . $movie_nowplaying[2]['id'] ?>" class="movie-title">
+        <img src="<?php echo yii\helpers\Url::base() . '/assets/images/'  . $movie_nowplaying[2]['image_path']?>" class="img-responsive image-resize">
+        <?php echo $movie_nowplaying[2]['title'] ?>
+				</a>
+			</div>
     </div>
   </div>
 </div>
@@ -108,17 +115,23 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <img src="<?php echo yii\helpers\Url::base()?>/assets/images/np1.jpg" class="img-responsive image-resize">
-        <a href="" class="movie-title">EXTRACTION</a>
-      </div>
+				<a href="<?php echo yii\helpers\Url::base() . '/movie/view?id=' . $movie_upcoming[0]['id'] ?>" class="movie-title">
+        <img src="<?php echo yii\helpers\Url::base() . '/assets/images/' . $movie_upcoming[0]['image_path']?>" class="img-responsive image-resize">
+        <?php echo $movie_upcoming[0]['title'] ?>
+				</a>
+			</div>
       <div class="col-md-4">
-        <img src="<?php echo yii\helpers\Url::base()?>/assets/images/np2.jpg" class="img-responsive image-resize">
-        <a href="" class="movie-title">AVENGERS ENDGAME</a>
-      </div>
+				<a href="<?php echo yii\helpers\Url::base() . '/movie/view?id=' . $movie_upcoming[1]['id'] ?>" class="movie-title">
+        <img src="<?php echo yii\helpers\Url::base() . '/assets/images/' . $movie_upcoming[1]['image_path']?>" class="img-responsive image-resize">
+        <?php echo $movie_upcoming[1]['title'] ?>
+				</a>
+			</div>
       <div class="col-md-4">
-        <img src="<?php echo yii\helpers\Url::base()?>/assets/images/np3.jpg" class="img-responsive image-resize">
-        <a href="" class="movie-title">INCEPTION</a>
-      </div>
+				<a href="<?php echo yii\helpers\Url::base() . '/movie/view?id=' . $movie_upcoming[2]['id'] ?>" class="movie-title">
+        <img src="<?php echo yii\helpers\Url::base() . '/assets/images/' . $movie_upcoming[2]['image_path']?>" class="img-responsive image-resize">
+        <?php echo $movie_upcoming[2]['title'] ?>
+				</a>
+			</div>
     </div>
   </div>
 </div>

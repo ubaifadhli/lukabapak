@@ -17,7 +17,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand mb-0 h1" href="#">Lukabapak</a>
+  <a class="navbar-brand mb-0 h1" href="<?php echo yii\helpers\Url::home()?>">Lukabapak</a>
 
 
     <form class="form-inline my-2 my-lg-0">
@@ -27,8 +27,8 @@
 
      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
   	 <div class="navbar-nav">
-			 <a class="nav-item nav-link active" href="#now_playing">Now Playing <span class="sr-only">(current)</span></a>
-       <a class="nav-item nav-link active" href="#upcoming">Upcoming <span class="sr-only">(current)</span></a>
+			 <!-- <a class="nav-item nav-link active" disabled>Now Playing <span class="sr-only">(current)</span></a>
+       <a class="nav-item nav-link active" disabled>Upcoming <span class="sr-only">(current)</span></a> -->
        <a class="nav-item nav-link active" href="<?php echo yii\helpers\Url::base()?>/site/theater">Theaters <span class="sr-only">(current)</span></a>
     </div>
 
@@ -47,21 +47,16 @@
 
 
 
-<form>
+<form method="get">
 	<select name="city" class="dropdown">
 		<?php
 			for($i = 0; $i < count($city); $i++) {
 				echo '<option value="' . $city[$i]['name'] . '">' . $city[$i]['name'] . '</option>';
 			}
 		?>
-
-		<!-- <option value="surabaya">Surabaya</option>
-		<option value="dkiJakarta">DKI Jakarta</option>
-		<option value="bali">Bali</option> -->
 	</select><br>
 
 	<select name="mall" class="mall" size="5">
-		<option><?= $city[0]['name']; ?></option>
 		<option value="tunjunganPlaza">Tunjungan Plaza</option>
 		<option value="galaxyMAll">Galaxy Mall</option>
 		<option value="delta">Delta</option>
