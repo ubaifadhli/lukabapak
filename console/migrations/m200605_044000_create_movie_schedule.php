@@ -16,13 +16,14 @@ class m200605_044000_create_movie_schedule extends Migration
             'id' => $this->primaryKey(),
             'movie_id' => $this->integer(11),
             'theater_id' => $this->integer(11),
-            'date' => $this->timestamp()->defaultValue(['expression'=>'CURRENT_TIMESTAMP']),
+            'date' => $this->string(64),
         ]);
 
         for($i = 1; $i <= 10; $i++) {
           $this->insert('{{%movie_schedule}}', [
             'movie_id' => $i,
             'theater_id' => $i,
+            'date' => ($i < 6) ? "9 Juni 2020" : "10 Juni 2020",
           ]);
         }
     }

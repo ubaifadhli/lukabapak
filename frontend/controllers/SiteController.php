@@ -142,7 +142,7 @@ class SiteController extends Controller
         $model = new RegisterForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->register()) {
-            return $this->render('home');
+            return $this->actionIndex();
         } else {
             return $this->render('register', [
                 'model' => $model,

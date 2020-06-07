@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Description</title>
-	<!-- bootstrap -->
+	<title>Schedule</title>
+</head>
+<!-- bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<!-- icon -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!--css  -->
-	<link rel="stylesheet" type="text/css" href="<?php echo yii\helpers\Url::base()?>/css/movie_detail.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo yii\helpers\Url::base()?>/css/theater_current_movie.css">
 
-</head>
 <body>
 	<!-- navbar -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,9 +26,9 @@
 
      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
   	 <div class="navbar-nav">
-      <!-- <a class="nav-item nav-link active" href="#">Now Playing <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link active" href="#">Upcoming <span class="sr-only">(current)</span></a> -->
-      <a class="nav-item nav-link active" href="<?php echo yii\helpers\Url::base()?>/site/theater">Theaters <span class="sr-only">(current)</span></a>
+			 <!-- <a class="nav-item nav-link active" href="#">Now Playing <span class="sr-only">(current)</span></a>
+       <a class="nav-item nav-link active" href="#">Upcoming <span class="sr-only">(current)</span></a> -->
+       <a class="nav-item nav-link active" href="<?php echo yii\helpers\Url::base()?>/site/theater">Theaters <span class="sr-only">(current)</span></a>
     </div>
 
     <ul class="navbar-nav ml-auto">
@@ -44,40 +44,39 @@
 </nav>
 <!-- navbar -->
 
+<div class="mall">
+	<h2><?= $model->name ?></h2>
+	<p><?= $model->name ?></p>
+	<p>Telephone : <?= $model->telephone_number ?></p>
+</div>
 
 
-
-<div class="box">
-	<div class="imgBox">
-		<h5><?php echo ($model->status_id == 1) ? 'Now Playing' : 'Upcoming'; ?></h5>
-		<img src="<?php echo '/assets/images/' . $model->image_path; ?>">
+<div class="movieBox">
+	<img src="/assets/images/<?= $movie[0]['image_path'] ?>">
+<div class="information">
+	<div class="movie-title">
+		<p><?= $movie[0]['title'] ?></p>
 	</div>
-	<div class="content">
-		<div class="description">
-			<h4><?php echo $model->title; ?></h4>
-			<p>Jenis Film : <?php echo $model->genre; ?></p>
-			<p>Sutradara : <?php echo $model->director_name; ?></p>
-			<p>Produksi : <?php echo $model->studio_name; ?></p>
-		</div>
-		<h2>Sinopsis</h2>
-		<p><?php echo $model->synopsis; ?></p>
-		<div class="time">
-		<table>
-			<tr>
-				<td><p>Pesan Tiket : </p></td>
-				<?php
-						for($i = 0; $i < count($schedule); $i++) {
-							echo '<td><a class="btn btn-dark" href="' . yii\helpers\Url::home() . '">' . $schedule[$i]['date'] . '</button></td>';
-						}
-				?>
 
-			</tr>
-		</table>
+	<div class="dimension">
+		<p><?= $movie[0]['screen_quality'] ?></p>
 	</div>
+
+	<div class="category">
+		<p><?= $movie[0]['rating'] ?></p>
+	</div>
+
+	<div class="time">
+		<a class="btn btn-outline-dark"  href="<?php echo yii\helpers\Url::base() . '/movie/view?id=' . $movie[0]['id']?>">Movie Detail</a>
 	</div>
 </div>
 
 
+	<div class="price">
+		<h5>Rp <?= $movie[0]['price'] ?></h5>
+	</div>
+
+</div>
 
 <footer>
 	<p>Created by Kelompok xxx | Lukabapak 2020</p>

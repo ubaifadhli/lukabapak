@@ -18,6 +18,15 @@ class m200605_043300_create_movie_reservation_table extends Migration
             'quantity' => $this->integer(2),
             'date' => $this->timestamp(),
         ]);
+
+        for($i = 1; $i <= 10; $i++) {
+          $this->insert('{{%movie_schedule}}', [
+            'movie_id' => $i,
+            'theater_id' => $i,
+            'date' => ($i < 6) ? "9 Juni 2020" : "10 Juni 2020",
+          ]);
+          // loop lagi disini
+        }
     }
 
     /**

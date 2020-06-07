@@ -3,17 +3,16 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Movie;
-use frontend\models\MovieSearch;
-use frontend\models\MovieSchedule;
+use frontend\models\Theater;
+use frontend\models\TheaterSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * MovieController implements the CRUD actions for Movie model.
+ * TheaterController implements the CRUD actions for Theater model.
  */
-class MovieController extends Controller
+class TheaterController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,12 +30,12 @@ class MovieController extends Controller
     }
 
     /**
-     * Lists all Movie models.
+     * Lists all Theater models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new MovieSearch();
+        $searchModel = new TheaterSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +45,7 @@ class MovieController extends Controller
     }
 
     /**
-     * Displays a single Movie model.
+     * Displays a single Theater model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -55,23 +54,35 @@ class MovieController extends Controller
     {
         $movieSchedule = (new \yii\db\Query())
                 ->from('movie_schedule')
-                ->where(['movie_id' => $id])
+                ->where(['theater_id' => $id])
+                ->limit(1)
                 ->all();
-                
-        return $this->render('movie_detail', [
+
+        //designed to get only 1 data, should be scaled later.
+        $movieData = (new \yii\db\Query())
+                ->select('movie.id, movie.title, movie.rating, movie.image_path, movie.screen_quality, movie_price.price')
+                ->from('movie, movie_price')
+                ->where(['movie.id' => $movieSchedule[0]['movie_id'], 'movie_price.movie_id' => $movieSchedule[0]['movie_id'] ])
+                ->limit(1)
+                ->all();
+
+        // print_r($movieData);
+
+        return $this->render('theater_current_movie', [
             'model' => $this->findModel($id),
             'schedule' => $movieSchedule,
+            'movie' => $movieData,
         ]);
     }
 
     /**
-     * Creates a new Movie model.
+     * Creates a new Theater model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Movie();
+        $model = new Theater();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -83,7 +94,7 @@ class MovieController extends Controller
     }
 
     /**
-     * Updates an existing Movie model.
+     * Updates an existing Theater model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -103,7 +114,7 @@ class MovieController extends Controller
     }
 
     /**
-     * Deletes an existing Movie model.
+     * Deletes an existing Theater model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -117,15 +128,15 @@ class MovieController extends Controller
     }
 
     /**
-     * Finds the Movie model based on its primary key value.
+     * Finds the Theater model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Movie the loaded model
+     * @return Theater the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Movie::findOne($id)) !== null) {
+        if (($model = Theater::findOne($id)) !== null) {
             return $model;
         }
 
