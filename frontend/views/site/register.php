@@ -6,13 +6,13 @@ use yii\widgets\ActiveForm;
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Register</title>
 <!-- bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<!-- icon -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!--css  -->
-	<link rel="stylesheet" type="text/css" href="<?php echo yii\helpers\Url::base()?>/css/login.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo yii\helpers\Url::base()?>/css/register.css">
 
 </head>
 <body>
@@ -45,36 +45,42 @@ use yii\widgets\ActiveForm;
 		
 	</div>
 
+
+
 <div class="container">
 	<div class="left"></div>
 	<div class="right">
 		<div class="formBox">	
-			<h1 class="title1">Welcome back!</h1>
-			<h5 class="title2">Log in to get latest movie in your area.</h5>
-			
-			<?php $form = ActiveForm::begin(); ?>
+			<h1 class="title1">Create your account!</h1>
+            <h5 class="title2">Sign up to get latest movie in your area.</h5>
+            
+            <?php $form = ActiveForm::begin(); ?>
+                <?= $form->field($model, 'name') ?>
+
 				<?= $form->field($model, 'email') ?>
 
 				<?= $form->field($model, 'password') ?>
 
 				<div class="form-group">
-				<?= Html::submitButton('Login', ['class' => 'btn btn-primary']) ?>
+				<?= Html::submitButton('Register', ['class' => 'btn btn-primary']) ?>
 			</div>
 			<?php ActiveForm::end(); ?>
-			
-			<!-- <form action="" method="POST">
+
+			<!-- <form action="" method="">
+				<div class="name">
+					<input type="text" name="name" placeholder="Name"><br>
+				</div>
 				<div class="email">
 					<input type="email" name="email" placeholder="Email"><br>
 				</div>
 				<div class="password">
 					<input type="password" name="password" placeholder="Password"><br>
 				</div>
-				<button name="submit" value="submit" class="orderbtn">Login</button>
+				<button name="submit" value="submit" class="orderbtn">Register</button>
 			</form>	 -->
 	</div>
 </div>
 </div>
-
 
 <footer>
 	<p>Created by Kelompok xxx | Lukabapak 2020</p>

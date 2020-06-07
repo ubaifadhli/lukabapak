@@ -1,0 +1,98 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.icon {
+	margin-top: 7px;
+}
+
+.title1 {
+	font-size: 50px;
+}
+
+.title2 {
+	font-size: 28px;
+}
+
+.login {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.container {
+	
+	margin:  0 auto;
+	margin-top: 100px;
+
+}
+
+.email input {
+	border-radius: 24px;
+	border: 2px solid black;
+	padding: 5px 30px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.password input {
+	border-radius: 24px;
+	border: 2px solid black;
+	padding: 5px 30px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.container .left {
+	float:  left;
+	width: 50%;
+	height: 400px;
+	background: url(./images/login-cinema.png);
+	background-size: 500px 400px;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+}
+
+.container right {
+	float: right;
+	width: 50%;
+	height: 400px;
+	box-sizing: border-box;
+}
+
+.formBox {
+	width: 100%;
+	padding:  80px 60px;
+	box-sizing:  border-box;
+	height: 400px;
+	background: #fff;
+}
+
+input .loginbtn {
+	border-radius: 25px;
+	background-color: black;
+	color: white;
+}
+
+
+button {
+	border-radius: 25px;
+	border: 2px solid black;
+	background-color: black;
+	color: white;
+	margin-top: 5px;
+	padding: 5px 20px;
+
+}
+
+footer {
+	/*height: 70px;*/
+	width: 100%;
+	color: white;
+	background-color: #333;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	padding: 5px;
+}
