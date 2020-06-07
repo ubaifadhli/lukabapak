@@ -71,6 +71,20 @@ body {
 	text-align: justify;
 }
 
+.time p {
+	margin-top: 10px;
+}
+
+.time button {
+	margin-top: 20px;
+	margin-left: 5px;
+	border-radius: 6px;
+	border: 1px solid black;
+	padding: 5px 20px;
+	background: black;
+	color: white;
+}
+
 footer {
 	/*height: 70px;*/
 	width: 100%;

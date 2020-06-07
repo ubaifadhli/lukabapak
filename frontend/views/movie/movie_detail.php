@@ -61,8 +61,19 @@
 		</div>
 		<h2>Sinopsis</h2>
 		<p><?php echo $model->synopsis; ?></p>
+		<div class="time">
+		<table>
+			<tr>
+				<td><p>Pesan Tiket : </p></td>
+				<td><button>12.15</button></td>
+				<td><button>12.45</button></td>
+			</tr>	
+		</table>	
+	</div>
 	</div>
 </div>
+
+
 
 <footer>
 	<p>Created by Kelompok xxx | Lukabapak 2020</p>
