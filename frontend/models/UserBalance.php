@@ -23,6 +23,11 @@ class UserBalance extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+     public static function primaryKey()
+     {
+         return ['user_id'];
+     }
     public function rules()
     {
         return [

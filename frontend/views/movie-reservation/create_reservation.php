@@ -47,12 +47,12 @@
 <!-- navbar -->
 
 <div class="title">
-	<h5>Choose Seat</h5>
+	<h5>Choose Seat : </h5>
 </div>
 
 <div class="mall">
-	<h5>Galaxy Mall</h5>
-	<p>Senin,25 Maret 2020</p>
+	<h5><?= $schedule[0]['name'] ?></h5>
+	<p><?= $schedule[0]['date'] ?></p>
 </div>
 
 <div class="seat">
@@ -67,73 +67,48 @@
 			<th>F</th>
 		</tr>
 
-		<tr class="row1">
-			<td>1</td>
-			<td><button>A1</button></td>
-			<td><button>B1</button></td>
-			<td><button>C1</button></td>
-			<td><button>D1</button></td>
-			<td><button>E1</button></td>
-			<td><button>F1</button></td>
-		</tr>
+		<form action="<?php echo yii\helpers\Url::base()?>/movie-reservation/finish-payment" method="get">
+
+		<?php
+			$seatCount = 0;
+
+			for($i = 1; $i <= 5; $i++) {
+				echo '<tr>';
+				echo '<td>' . $i . '</td>';
+				for($j = 0; $j <= 5; $j++) {
+					$disabled = ($scheduleSeat[$seatCount]['availability'] == 0) ? "disabled " : "";
+					echo '<td><input type="checkbox" ' . $disabled . 'name="seat[]" value="' . $scheduleSeat[$seatCount]['id'] . '"></td>'; // strval(chr(65 + $j) . $i)
+					$seatCount++;
+				}
+				echo '</tr>';
+			}
+		?>
 
 
-		<tr>
-			<td>2</td>
-			<td><button>A2</button></td>
-			<td><button>B2</button></td>
-			<td><button>C2</button></td>
-			<td><button>D2</button></td>
-			<td><button>E2</button></td>
-			<td><button>F2</button></td>
-		</tr>
 
-		<tr>
-			<td>3</td>
-			<td><button>A3</button></td>
-			<td><button>B3</button></td>
-			<td><button>C3</button></td>
-			<td><button>D3</button></td>
-			<td><button>E3</button></td>
-			<td><button>F3</button></td>
-		</tr>
-
-		<tr>
-			<td>4</td>
-			<td><button>A4</button></td>
-			<td><button>B4</button></td>
-			<td><button>C4</button></td>
-			<td><button>D4</button></td>
-			<td><button>E4</button></td>
-			<td><button>F4</button></td>
-		</tr>
-
-		<tr>
-			<td>5</td>
-			<td><button>A5</button></td>
-			<td><button>B5</button></td>
-			<td><button>C5</button></td>
-			<td><button>D5</button></td>
-			<td><button>E5</button></td>
-			<td><button>F5</button></td>
-		</tr>
 	</table>
 </div>
 
+<div class="sign">
+<table>
+	<tr><div></tr>
+			<td><input type="checkbox" id="available">  <label for="available">Available</label></div></td>
+	<tr><div></tr>
+			<td><input type="checkbox" id="sold" disabled>  <label for="sold">Sold</label></div></td>
+	<tr><div></tr>
+			<td><input type="checkbox" id="selected" checked>  <label for="selected">Selected</label></div></td>
+</table>
 
- <div class="sign">
- 	<table>
- 		<td><div class="square"></td>
- 			<td><p>Available</p></div></td>
- 		<td><div class="square2"></td>
- 			<td><p>Sold</p></div></td>
- 	</table>
+</div>
 
- </div>
+<div>
+	<br>
+	<input type="hidden" name="schedule_id" value="<?php echo $_GET["schedule_id"] ?>">
+	<input type="submit" class="btn btn-dark" value="Next">
 
- <
- <button class="next">NEXT</button>
+</div>
 
+</form>
 
  </div>
 

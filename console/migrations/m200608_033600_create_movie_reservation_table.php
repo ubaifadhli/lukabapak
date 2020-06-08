@@ -16,7 +16,6 @@ class m200608_033600_create_movie_reservation_table extends Migration
             'id' => $this->primaryKey(),
             'user_id' => $this->integer(11),
             'movie_schedule_id' => $this->integer(11),
-            'quantity' => $this->integer(2),
             'date' => $this->string(64),
         ]);
     }

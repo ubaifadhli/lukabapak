@@ -35,22 +35,40 @@ AppAsset::register($this);
 <?php
 function isLoginSessionExpired() {
 	$login_session_duration = 10;
-	if(isset($_SESSION['loggedin_time']) and isset($_SESSION["user_id"])){  
-		if(((time() - $_SESSION['loggedin_time']) > $login_session_duration)){ 
-			return true; 
-		} 
+	if(isset($_SESSION['loggedin_time']) and isset($_SESSION["user_id"])){
+		if(((time() - $_SESSION['loggedin_time']) > $login_session_duration)){
+			return true;
+		}
 	}
 	return false;
 }
 ?>
-
 <?php $this->beginBody() ?>
 
-<!-- <div class="wrap"> -->
+
+
+<div class="wrap">
     <!-- <div class="container"> -->
-        <?= $content ?>
+    <?php if (Yii::$app->session->hasFlash('success')): ?>
+        <div class="alert alert-success alert-dismissable">
+             <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+             <h4><i class="icon fa fa-check"></i>Success!</h4>
+             <?= Yii::$app->session->getFlash('success') ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (Yii::$app->session->hasFlash('error')): ?>
+        <div class="alert alert-danger alert-dismissable">
+             <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+             <h4><i class="icon fa fa-check"></i>Error!</h4>
+             <?= Yii::$app->session->getFlash('error') ?>
+        </div>
+    <?php endif; ?>
+
         <!-- </div> -->
-<!-- </div> -->
+</div>
+
+<?= $content ?>
 
 <?php $this->endBody() ?>
 </body>

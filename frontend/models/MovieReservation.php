@@ -8,9 +8,9 @@ use Yii;
  * This is the model class for table "movie_reservation".
  *
  * @property int $id
+ * @property int|null $user_id
  * @property int|null $movie_schedule_id
- * @property int|null $quantity
- * @property string $date
+ * @property string|null $date
  */
 class MovieReservation extends \yii\db\ActiveRecord
 {
@@ -28,8 +28,8 @@ class MovieReservation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['movie_schedule_id', 'quantity'], 'integer'],
-            [['date'], 'safe'],
+            [['user_id', 'movie_schedule_id'], 'integer'],
+            [['date'], 'string', 'max' => 64],
         ];
     }
 
@@ -40,8 +40,8 @@ class MovieReservation extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'user_id' => 'User ID',
             'movie_schedule_id' => 'Movie Schedule ID',
-            'quantity' => 'Quantity',
             'date' => 'Date',
         ];
     }

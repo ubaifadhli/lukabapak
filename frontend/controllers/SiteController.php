@@ -147,7 +147,8 @@ class SiteController extends Controller
         $model = new RegisterForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->register()) {
-            return $this->actionIndex();
+            Yii::$app->session->setFlash('success', "Your account has been created!");
+            return $this->redirect(array("site/index"));
         } else {
             return $this->render('register', [
                 'model' => $model,

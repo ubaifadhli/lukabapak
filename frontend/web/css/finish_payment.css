@@ -1,0 +1,79 @@
+.icon {
+	margin-top: 7px;
+}
+
+footer {
+	/*height: 70px;*/
+	width: 100%;
+	color: white;
+	background-color: #333;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	padding: 5px;
+}
+
+.navbar-logo img {
+	width: 120px;
+	height: 65px;
+	margin-right: 10px;
+}
+
+.title {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.rincian {
+	margin-left: 85%;
+}
+
+button.next {
+ 	background-color: white;
+ 	padding:1px 20px;
+ 	border-radius: 8px;
+ 	border: 1px solid black;
+ 	color: black;
+ }
+
+ .price {
+ 	margin-left: 30px;
+ 	font-weight: bold;
+ }
+
+ .next {
+ 	margin-left: 1100px;
+ }
+
+ .total {
+ 	border:1px solid gray;
+	padding: 10px 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 130px;
+ }
+
+.saldo {
+	border:1px solid gray;
+	padding: 30px 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+
+}
+
+
+.ticket-detail {
+	border: 2px solid green;
+	border-radius: 10px;
+	padding: 5px;
+
+}
+
+.movie-title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+h4 {
+	margin-top: 10px;
+}
