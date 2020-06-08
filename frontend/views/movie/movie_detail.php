@@ -67,7 +67,7 @@
 		<div class="time">
 		<table>
 			<tr>
-				<td><p>Pesan Tiket : </p></td>
+				<td><p>Pesan Tiket : <?= ($model->status_id == 0)? "Upcoming" : ""; ?></p></td>
 				<?php
 						for($i = 0; $i < count($schedule); $i++) {
 							echo '<td><a class="btn btn-dark" href="' . yii\helpers\Url::base() . '/movie-reservation/create?schedule_id=' . $schedule[0]['id'] . '">' . $schedule[$i]['date'] . '</button></td>';

@@ -15,6 +15,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\City;
+use frontend\models\Theater;
 use frontend\models\RegisterForm;
 use frontend\models\Movie;
 
@@ -100,9 +101,13 @@ class SiteController extends Controller
         $city = City::find()->asArray()->all();
 
         $theater = (new \yii\db\Query())
-                ->select(['name', 'city_id'])
+                ->select(['id', 'name', 'city_id', 'address'])
                 ->from('theater')
                 ->all();
+
+        // $theater = Theater::find()->asArray()->all();
+
+        // print_r($theater);
 
         return $this->render('theater', array('city' => $city,
                                               'theater' => $theater));

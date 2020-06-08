@@ -11,6 +11,47 @@
 	<title>Theaters</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo yii\helpers\Url::base()?>/css/theater.css">
 </head>
+<script type="text/javascript">
+function updateTheaterList(cityID)
+{
+	// alert("ok!");
+	var selectElement = document.getElementById("city");
+	var selectedIndex = selectElement.options[selectElement.selectedIndex].value;
+
+	var theaterList = <?php echo json_encode($theater) ?>;
+	var selectedTheaterList = [];
+	var selectedTheaterIndexList = [];
+	var selectedTheaterAddressList = [];
+
+	for(let i = 0; i < theaterList.length; i++) {
+		if(theaterList[i]['city_id'] == selectedIndex) {
+			selectedTheaterList.push(theaterList[i]['name']);
+			selectedTheaterIndexList.push(theaterList[i]['id']);
+			selectedTheaterAddressList.push(theaterList[i]['address']);
+		}
+	}
+
+	// var theaterSelect = document.getElementById("mall");
+	// theaterSelect.options.length = 0;
+	// for(let i = 0; i < selectedTheaterList.length; i++) {
+	// 	theaterSelect.options[theaterSelect.options.length] = new Option(selectedTheaterList[i], i);
+	// }
+
+	var theater_ul = document.getElementById("theater");
+	theater_ul.innerHTML = "";
+	for(let i = 0; i < selectedTheaterList.length; i++ ) {
+		var anchor = document.createElement("a");
+		anchor.appendChild(document.createTextNode(selectedTheaterList[i]));
+		anchor.href = "<?php echo yii\helpers\Url::base() . '/theater/view?id='; ?>" + selectedTheaterIndexList[i];
+		theater_ul.appendChild(anchor);
+		theater_ul.appendChild(document.createElement("br"));
+		theater_ul.appendChild(document.createTextNode(selectedTheaterAddressList[i]))
+		theater_ul.appendChild(document.createElement("br"));
+		theater_ul.appendChild(document.createElement("br"));
+	}
+
+}
+</script>
 <body>
 		<!-- navbar -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -49,24 +90,22 @@
 
 
 
-<form method="get">
-	<select name="city" class="dropdown">
+<!-- <form method="get"> -->
+	<select id="city" class="dropdown" onchange=" return updateTheaterList();">
+		<option disabled selected value style="display:none;">-- select a city --</option>
 		<?php
 			for($i = 0; $i < count($city); $i++) {
-				echo '<option value="' . $city[$i]['name'] . '">' . $city[$i]['name'] . '</option>';
+				echo '<option value="' . $city[$i]['id'] . '">' . $city[$i]['name'] . '</option>';
 			}
 		?>
-	</select><br>
-
-	<select name="mall" class="mall" size="5">
-		<option value="tunjunganPlaza">Tunjungan Plaza</option>
-		<option value="galaxyMAll">Galaxy Mall</option>
-		<option value="delta">Delta</option>
-		<option value="ciputraWorld">Ciputra World</option>
-		<option value="eastCoast">East Coast</option>
-		<option value="sutos">Sutos</option>
 	</select>
-</form>
+
+	<!-- <select id="mall" class="mall" size="5">
+	</select> -->
+
+	<ul id="theater" class="mall"></ul>
+
+<!-- </form> -->
 
 
 
