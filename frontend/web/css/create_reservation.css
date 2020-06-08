@@ -1,0 +1,100 @@
+.icon {
+	margin-top: 7px;
+}
+
+footer {
+	/*height: 70px;*/
+	width: 100%;
+	color: white;
+	background-color: #333;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	padding: 5px;
+}
+
+.seatStructure {
+	margin-left: 20px;
+	border-radius: 8px;
+	border: 1px solid grey;
+	margin-right: 20px;
+}
+
+.title {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.mall {
+	margin-left: 85%;
+}
+
+.seat {
+	border:1px solid gray;
+	padding: 10px 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+th	{
+	text-align:center;
+}
+
+table {
+	margin-left: 10px;
+	
+}
+
+.seat button {
+	background: green;
+	color: white;
+	cursor: pointer;
+	animation: animate 1s linear infinite;
+}
+
+.seat button:focus {
+	background-color: red;
+}
+
+ .square {
+      width: 30px;
+      height: 30px;
+      background: green;
+    }
+
+ .square2 {
+      width: 30px;
+      height: 30px;
+      background: red;
+      margin-left: 20px;
+    }
+
+ .sign {
+ 	margin-top: 20px;
+ }
+
+ .total {
+ 	border:1px solid gray;
+	padding: 10px 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 150px;
+ }
+
+ button.next {
+ 	background-color: white;
+ 	padding:1px 20px;
+ 	border-radius: 8px;
+ 	border: 1px solid black;
+ 	color: black;
+ }
+
+ .price {
+ 	margin-left: 30px;
+ 	font-weight: bold;
+ }
+
+ .next {
+ 	margin-left: 1100px;
+ }
+

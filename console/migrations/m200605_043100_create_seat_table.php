@@ -15,7 +15,7 @@ class m200605_043100_create_seat_table extends Migration
         $this->createTable('{{%seat}}', [
             'id' => $this->primaryKey(),
             'number' => $this->string(4),
-            'availability' => $this->integer(2),
+            'availability' => $this->integer(2)->defaultValue(1),
         ]);
     }
 

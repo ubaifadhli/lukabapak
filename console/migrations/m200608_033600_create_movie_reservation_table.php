@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%user_data}}`.
  */
-class m200605_043300_create_movie_reservation_table extends Migration
+class m200608_033600_create_movie_reservation_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -14,19 +14,11 @@ class m200605_043300_create_movie_reservation_table extends Migration
     {
         $this->createTable('{{%movie_reservation}}', [
             'id' => $this->primaryKey(),
+            'user_id' => $this->integer(11),
             'movie_schedule_id' => $this->integer(11),
             'quantity' => $this->integer(2),
-            'date' => $this->timestamp(),
+            'date' => $this->string(64),
         ]);
-
-        for($i = 1; $i <= 10; $i++) {
-          $this->insert('{{%movie_schedule}}', [
-            'movie_id' => $i,
-            'theater_id' => $i,
-            'date' => ($i < 6) ? "9 Juni 2020" : "10 Juni 2020",
-          ]);
-          // loop lagi disini
-        }
     }
 
     /**

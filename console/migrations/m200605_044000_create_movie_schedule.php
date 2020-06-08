@@ -19,13 +19,13 @@ class m200605_044000_create_movie_schedule extends Migration
             'date' => $this->string(64),
         ]);
 
-        for($i = 1; $i <= 10; $i++) {
-          $this->insert('{{%movie_schedule}}', [
-            'movie_id' => $i,
-            'theater_id' => $i,
-            'date' => ($i < 6) ? "9 Juni 2020" : "10 Juni 2020",
-          ]);
-        }
+        // for($i = 1; $i <= 10; $i++) {
+        //   $this->insert('{{%movie_schedule}}', [
+        //     'movie_id' => $i,
+        //     'theater_id' => $i,
+        //     'date' => ($i < 6) ? "9 Juni 2020" : "10 Juni 2020",
+        //   ]);
+        // }
     }
 
     /**

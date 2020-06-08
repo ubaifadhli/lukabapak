@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%user_data}}`.
  */
-class m200605_043800_create_movie_reservation_seat extends Migration
+class m200608_033500_create_movie_reservation_seat extends Migration
 {
     /**
      * {@inheritdoc}
