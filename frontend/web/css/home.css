@@ -104,3 +104,13 @@ a.movie-title {
 	text-align: center;
 	margin-bottom: 30px;
 }
+
+.navbar-logo img {
+	width: 120px;
+	height: 65px;
+	margin-right: 10px;
+}
+
+.carousel {
+	margin-left: 30%;
+}

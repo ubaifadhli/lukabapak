@@ -129,12 +129,9 @@
 
  </div>
 
- <div class="total">
- 	<table>
- 		<td><p class="subtotal">SUBTOTAL</p></td>
- 		<td><p class="price">Rp.150.000 (3Tickets)</p></td>
- 		<td><button class="next">NEXT</button></td>
- 	</table>
+ <
+ <button class="next">NEXT</button>
+ 	
 
  </div>
 

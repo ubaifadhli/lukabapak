@@ -11,9 +11,11 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand mb-0 h1" href="<?php echo yii\helpers\Url::base()?>">Lukabapak</a>
-
-
+ <!--  <a class="navbar-brand mb-0 h1" href="<?php echo yii\helpers\Url::base()?>">Lukabapak</a> -->
+ <div class="navbar-logo">
+   <img src="<?php echo yii\helpers\Url::base()?>/assets/images/navbarLogo2.jpeg"> 
+ </div>
+  
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -49,24 +51,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?php echo yii\helpers\Url::base()?>/assets/images/oblivion_carousel.jpg" class="d-block w-100" alt="...">
+      <img src="<?php echo yii\helpers\Url::base()?>/assets/images/carousel1.jpeg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>OBLIVION</h5>
-        <p>Oblivion takes place in 2077, on an Earth devastated by war with extraterrestrials that has caused humanity to relocate itself to Titan. </p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="<?php echo yii\helpers\Url::base()?>/assets/images/avatar_carousel.jpg" class="d-block w-100" alt="...">
+      <img src="<?php echo yii\helpers\Url::base()?>/assets/images/carousel2.jpeg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="<?php echo yii\helpers\Url::base()?>/assets/images/looper_carousel.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
       </div>
     </div>
   </div>

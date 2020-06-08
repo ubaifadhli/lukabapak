@@ -1,3 +1,4 @@
+\
 .icon {
 	margin-top: 7px;
 }
@@ -30,10 +31,11 @@ footer {
 }
 
 .seat {
-	border:1px solid gray;
+	border:2px solid gray;
 	padding: 10px 10px;
 	margin-left: 10px;
 	margin-right: 10px;
+	border-radius: 5px;
 }
 
 th	{
@@ -81,20 +83,21 @@ table {
 	margin-top: 150px;
  }
 
- button.next {
- 	background-color: white;
- 	padding:1px 20px;
- 	border-radius: 8px;
- 	border: 1px solid black;
- 	color: black;
- }
+ 
 
  .price {
  	margin-left: 30px;
  	font-weight: bold;
  }
 
- .next {
- 	margin-left: 1100px;
+ button.next {
+ 	margin-top: 13%;
+ 	margin-right: 20px;
+ 	float: right;
+ 	border-radius: 10px;
+ 	background-color: black;
+ 	color: white;
+ 	border: 2px solid black;
+ 	padding: 3px 15px;
  }
 
