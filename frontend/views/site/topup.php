@@ -18,7 +18,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="navbar-logo">
-   <img src="<?php echo yii\helpers\Url::base()?>/assets/images/logo1.jpeg"> 
+   <a href="<?php echo yii\helpers\Url::home()?>"><img src="<?php echo yii\helpers\Url::base()?>/assets/images/logo1.jpeg"></a> 
  </div>
 
 
@@ -37,11 +37,11 @@
     <ul class="navbar-nav ml-auto">
     <div class="icon">
       <i class="material-icons">account_circle</i>
-     </div> 
+     </div>
      <li class="nav-item active">
         <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
       </li>
-     
+
     </ul>
   </div>
 </nav>
@@ -50,7 +50,7 @@
 
 
 <div class="margin">
-	
+
 	<h3>Top Up</h3>
 	<h5>Top Up ke</h5>
 
@@ -93,7 +93,7 @@
 		<button>TOP UP</button>
 	</div>
 </form>
-	
+
 </div>
 
 

@@ -13,9 +13,9 @@
   </button>
  <!--  <a class="navbar-brand mb-0 h1" href="<?php echo yii\helpers\Url::base()?>">Lukabapak</a> -->
  <div class="navbar-logo">
-   <img src="<?php echo yii\helpers\Url::base()?>/assets/images/logo1.jpeg"> 
+   <a href="<?php echo yii\helpers\Url::home()?>"><img src="<?php echo yii\helpers\Url::base()?>/assets/images/logo1.jpeg"></a> 
  </div>
-  
+
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

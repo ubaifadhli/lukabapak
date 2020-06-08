@@ -18,7 +18,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="navbar-logo">
-   <img src="<?php echo yii\helpers\Url::base()?>/assets/images/logo1.jpeg"> 
+   <a href="<?php echo yii\helpers\Url::home()?>"><img src="<?php echo yii\helpers\Url::base()?>/assets/images/logo1.jpeg"></a>
  </div>
 
 

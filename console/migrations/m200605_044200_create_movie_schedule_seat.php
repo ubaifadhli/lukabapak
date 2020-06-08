@@ -20,11 +20,11 @@ class m200605_044200_create_movie_schedule_seat extends Migration
         $movie_reservation_count = 1;
         $seat_count = 1;
 
-        for($i = 1; $i <= 10; $i++) {
+        for($i = 1; $i <= 5; $i++) {
           $this->insert('{{%movie_schedule}}', [
             'movie_id' => $i,
             'theater_id' => $i,
-            'date' => ($i < 6) ? "9 Juni 2020" : "10 Juni 2020",
+            'date' => "9 Juni 2020",
           ]);
           // loop lagi disini
 
