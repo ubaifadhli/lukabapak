@@ -33,7 +33,6 @@ footer {
 
 .image-resize {
 	height: 400px;
-	/*margin-top: 10%;*/
 }
 
 h1 {
@@ -60,7 +59,7 @@ a.movie-title {
 
 .image-resize {
 	height: 400px;
-	/*margin-top: 10%;*/
+	width: 300px;
 }
 
 .icon {
@@ -69,7 +68,7 @@ a.movie-title {
 
 
 footer {
-	/*height: 70px;*/
+	
 	width: 100%;
 	color: white;
 	background-color: #333;
@@ -112,5 +111,5 @@ a.movie-title {
 }
 
 .carousel {
-	margin-left: 30%;
+	margin-left: 25%;
 }
