@@ -31,9 +31,20 @@ class RegisterForm extends Model
             $user = new User();
             $user->name = $this->name;
             $user->email = $this->email;
-            $user->password_hash = Yii::$app->getSecurity()->generatePasswordHash($this->password);
-            //$user->password_hash = md5($this->password);
+            $user->password_hash = md5($this->password);
             $user->save();
+
+            $user_id = User::find()->select(["id"])->where(["email" => $user->email]);
+
+            $user_id = (new \yii\db\Query())
+                ->from('user')
+                ->where(['email' => $user->email])
+                ->all();
+
+            $userBalance = new UserBalance();
+            $userBalance->user_id = $user_id[0]['id'];
+            $userBalance->save();
+
             return true;
         } else {
             // alert kalo email udah dipake

@@ -31,6 +31,19 @@ AppAsset::register($this);
     <?php //$this->head() ?>
 </head>
 <body>
+
+<?php
+function isLoginSessionExpired() {
+	$login_session_duration = 10;
+	if(isset($_SESSION['loggedin_time']) and isset($_SESSION["user_id"])){  
+		if(((time() - $_SESSION['loggedin_time']) > $login_session_duration)){ 
+			return true; 
+		} 
+	}
+	return false;
+}
+?>
+
 <?php $this->beginBody() ?>
 
 <!-- <div class="wrap"> -->

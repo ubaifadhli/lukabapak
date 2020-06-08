@@ -3,6 +3,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\base\Model;
+use yii\data\ActiveDataProvider;
 
 /**
  * Login form
@@ -25,51 +26,25 @@ class LoginForm extends Model
             [['email', 'password'], 'required'],
         ];
     }
-
-    /**
-     * Validates the password.
-     * This method serves as the inline validation for password.
-     *
-     * @param string $attribute the attribute currently being validated
-     * @param array $params the additional name-value pairs given in the rule
-     */
-    // public function validatePassword($attribute, $params)
-    // {
-    //     if (!$this->hasErrors()) {
-    //         $user = $this->getUser();
-    //         if (!$user || !$user->validatePassword($this->password)) {
-    //             $this->addError($attribute, 'Incorrect username or password.');
-    //         }
-    //     }
-    // }
-
-    /**
-     * Logs in a user using the provided username and password.
-     *
-     * @return bool whether the user is logged in successfully
-     */
-    // public function login()
-    // {
-    //     if ($this->validate()) {
-    //         return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
-    //     }
-        
-    //     return false;
-    // }
     
     public function login()
     {
-        //$user = $this->getUser();
-        //$password_hash = $user->password_hash;
-        
-        $password_hash = User::find()
-        ->select(["password_hash"])
-        ->where(["email" => "$this->email"]);
+        $user = (new \yii\db\Query())
+                ->from('user')
+                ->where(['email' => $this->email])
+                ->all();
 
-        $apasi = (Yii::$app->getSecurity()->generatePasswordHash($this->password) == $password_hash);
+        $password_hash = $user[0]['password_hash'];
+        $input_pass = md5($this->password);
 
-        return $apasi;
-        //return Yii::$app->getSecurity()->validatePassword($this->password, $password_hash);
+        if (strcmp($input_pass, $password_hash)) {
+            session_start();
+            $_SESSION['user_id'] = $user[0]['id'];
+            $_SESSION['name'] = $user[0]['name'];
+            return true;
+        } else {
+            return false;
+        }
     }
     
     /**
