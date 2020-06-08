@@ -1,6 +1,13 @@
-\
+
 .icon {
 	margin-top: 7px;
+}
+
+
+.navbar-logo img {
+	width: 120px;
+	height: 65px;
+	margin-right: 10px;
 }
 
 footer {

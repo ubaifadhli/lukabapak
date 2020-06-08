@@ -3,6 +3,12 @@ body {
     height: 100%;
 }
 
+.navbar-logo img {
+	width: 120px;
+	height: 65px;
+	margin-right: 10px;
+}
+
 .wrap {
     min-height: 100%;
     height: auto;

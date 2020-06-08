@@ -13,7 +13,7 @@
   </button>
  <!--  <a class="navbar-brand mb-0 h1" href="<?php echo yii\helpers\Url::base()?>">Lukabapak</a> -->
  <div class="navbar-logo">
-   <img src="<?php echo yii\helpers\Url::base()?>/assets/images/navbarLogo2.jpeg"> 
+   <img src="<?php echo yii\helpers\Url::base()?>/assets/images/logo1.jpeg"> 
  </div>
   
     <form class="form-inline my-2 my-lg-0">

@@ -9,6 +9,11 @@ footer {
 	padding: 5px;
 }
 
+.navbar-logo img {
+	width: 120px;
+	height: 65px;
+	margin-right: 10px;
+}
 
 .icon {
 	margin-top: 7px;
