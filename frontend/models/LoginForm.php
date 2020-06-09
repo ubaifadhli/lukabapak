@@ -38,9 +38,12 @@ class LoginForm extends Model
         $input_pass = md5($this->password);
 
         if (strcmp($input_pass, $password_hash)) {
-            session_start();
+            $session = Yii::$app->session;
+            if ($session->isActive) $session->destroy();
+            $session->open();
             $_SESSION['user_id'] = $user[0]['id'];
             $_SESSION['name'] = $user[0]['name'];
+            print_r($session);
             return true;
         } else {
             return false;

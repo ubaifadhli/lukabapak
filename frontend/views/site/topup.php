@@ -29,9 +29,9 @@
 
      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
   	 <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Now Playing <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link active" href="#">Upcoming <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link active" href="#">Theaters <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="<?php echo yii\helpers\Url::base()?>/site/index#now_playing">Now Playing <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="<?php echo yii\helpers\Url::base()?>/site/index#upcoming">Upcoming <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="<?php echo yii\helpers\Url::base()?>/site/theater">Theaters <span class="sr-only">(current)</span></a>
     </div>
 
     <ul class="navbar-nav ml-auto">
@@ -39,7 +39,10 @@
       <i class="material-icons">account_circle</i>
      </div>
      <li class="nav-item active">
-        <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo yii\helpers\Url::base() . isset($_SESSION['user_id']) ? '/site/profile' : '/site/login' ?>">
+          <?php echo (isset($_SESSION['user_id'])) ? $_SESSION['name'] : 'Login'; ?>
+          <span class="sr-only">(current)</span>
+        </a>
       </li>
 
     </ul>
@@ -48,7 +51,7 @@
 <!-- navbar -->
 
 
-
+<form action="<?php echo yii\helpers\Url::base()?>/site/process-topup" method="get">
 <div class="margin">
 
 	<h3>Top Up</h3>
@@ -59,8 +62,8 @@
 	<h3>M-Bapak</h3>
 	<p>Saldo Rp500.000</p>
 </div>
-<form>
-<div class="min-topup">
+
+<!-- <div class="min-topup">
 	<h5>Pilih Nominal Top Up</h5>
 	<table>
 		<tr>
@@ -69,7 +72,7 @@
 			<td><button>Rp150.000</button></td>
 		</tr>
 	</table>
-</div>
+</div> -->
 
 <div class="nominal">
 	<p>Atau masukkan nominal disini</p>
@@ -83,8 +86,8 @@
 		<h5>Pillih Pembayaran</h5>
 		<table>
 			<tr>
-				<td><button>ATM</button></td>
-				<td><button>Internet / Mobile Banking</button></td>
+				<td><a href="#" class="btn btn-lg btn-outline-dark" data-toggle="button">ATM</a></td>
+				<td><a href="#" class="btn btn-lg btn-outline-dark" data-toggle="button">Internet / Mobile Banking</a></td>
 			</tr>
 		</table>
 	</div>

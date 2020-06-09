@@ -47,7 +47,7 @@ class RegisterForm extends Model
 
             return true;
         } else {
-            // alert kalo email udah dipake
+            echo "<script>alert('EMAIL HAS ALREADY BEEN USED');</script>";
             return false;
         }
     }

@@ -15,9 +15,11 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\City;
-use frontend\models\Theater;
 use frontend\models\RegisterForm;
-use frontend\models\Movie;
+use frontend\models\EditProfileForm;
+use frontend\models\MovieReservation;
+use frontend\models\UserBalance;
+use frontend\models\User;
 
 /**
  * Site controller
@@ -115,7 +117,88 @@ class SiteController extends Controller
 
     public function actionTopup()
     {
-      return $this->render('topup');
+        return $this->render('topup');
+    }
+
+    public function actionProcessTopup()
+    {
+        $balance = Yii::$app->request->get('balance');
+        $userBalance = UserBalance::findOne($_SESSION['user_id']);
+        $userBalance->balance = strval(intval($userBalance->balance + $balance));
+        
+        // $user_id = $_SESSION['user_id'];
+
+        // $userBalance = UserBalance::find()
+        //             ->where(["user_id" => $user_id])
+        //             ->asArray();
+
+        // print_r($userBalance);
+        // $userBalance->balance += $balance;
+
+        if ($userBalance->save()) {
+            Yii::$app->session->setFlash('success', "Top Up Success!");
+            return $this->redirect(array("site/index"));
+        } else {
+            Yii::$app->session->setFlash('error', "Top Up Failed!");
+            return $this->redirect(array("site/topup"));
+        }
+    }
+
+    public function actionProfile()
+    {
+        $model = User::findOne($_SESSION['user_id']);
+        $balance = UserBalance::findOne($_SESSION['user_id']);
+
+        // $history = MovieReservation::find()
+        //             ->where(['user_id' => $_SESSION['user_id']])
+        //             ->innerJoin('movie_schedule', 'movie_reservation.movie_schedule_id = movie_schedule.id')
+        //             ->innerJoin('movie', 'movie_schedule.movie_id = movie.id')
+        //             ->asArray()
+        //             ->all();
+
+        // $history = MovieReservation::find()->where(['user_id' => $_SESSION['user_id']])->joinWith([
+        //     'movie_schedule' => function ($query) {
+        //         $query->onCondition(['movie_schedule.id' => 'movie_reservation.movie_schedule_id']);
+        //     },
+        //     'movie' => function ($query2) {
+        //         $query2->onCondition(['movie.id' => 'movie_schedule.movie_id']);
+        //     },
+        // ])->all();
+
+        return $this->render('profile', array('model' => $model,
+                                              'balance' => $balance));
+    }
+
+    public function actionEditProfile()
+    {
+        $model = User::findOne($_SESSION['user_id']);
+
+        if(Yii::$app->request->get('name') != null) {
+            $name = Yii::$app->request->get('name');
+            $model->name = $name;
+            $_SESSION['name'] = $name;
+        }
+        
+        if(Yii::$app->request->get('email') != null) {
+            $model->email = Yii::$app->request->get('email');
+        }
+
+        $password = Yii::$app->request->get('password');
+        $confirmPassword = Yii::$app->request->get('confirm-password');
+
+        if($password != null && $confirmPassword != null) {
+            if(strcmp($password, $confirmPassword)) {
+                $model->password_hash = md5($password);
+            }
+        }
+
+        if ($model->save()) {
+            Yii::$app->session->setFlash('success', "Profile Edited Successfully!");
+            return $this->redirect(array("site/index"));
+        } else {
+            Yii::$app->session->setFlash('error', "Profile Edit Failed!");
+            return $this->redirect(array("site/profile"));
+        }
     }
 
     /**
@@ -125,12 +208,8 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        // if (!Yii::$app->user->isGuest) {
-        //     return $this->goHome();
-        // }
-
         $model = new LoginForm();
-        // $model->load(Yii::$app->request->post());
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->actionIndex();
         } else {
