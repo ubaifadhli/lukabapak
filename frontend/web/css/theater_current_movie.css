@@ -25,6 +25,7 @@ footer {
 }
 
 .movieBox {
+	margin-top: 20px;
 	position: absolute;
 	top: 50%;
 	left: 25%;
@@ -50,11 +51,15 @@ footer {
 }
 
 .dimension p  {
-	/*border-radius: 15px;*/
 	border: 1px solid black;
 	padding: 10px 10px;
 	box-sizing: border-box;
 	width: 50px;
+}
+
+.price h5 {
+	margin-top: 3px;
+	margin-left: 10px;
 }
 
 .category p {
@@ -72,3 +77,6 @@ footer {
 	background: white;
 }
 
+.mall p {
+	margin-left: 10px;
+}
